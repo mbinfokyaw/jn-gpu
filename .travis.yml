@@ -2,19 +2,17 @@ sudo: enabled
 language: bash
 services:
 - docker
-
 jobs:
   include:
-    - stage: build base
-      script:
-      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - ./build.sh base-notebook-gpu
-    - stage: build minimal
-      script:
-      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - ./build.sh base-minimal-gpu
-
+  - stage: build base
+    script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - "./build.sh base-notebook-gpu"
+  - stage: build minimal
+    script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - "./build.sh base-minimal-gpu"
 env:
   global:
-  - secure: HoMv6B4csnKuN+cRZnBKc80BnT0T3/a+nuR++cVrLgNGcPtX/OedVXH/8rVax5yRoE12yMfhPBIj8HInX7RtKKWuhiTErE0Q9eImtdqrn7vcOWeOZ+iOAW/j1Bu44UcNr+2zubKL+owD/a1J3fkENGEh6KklmNVF2E9UOvJVR+JZKJih4fshG6kwSaV2+IWpr/vdnAbqW6UUyZ6qzu9G5jz/76nn7fKvj0lywj5NaJnrl42qCjLJZIWWAGpCKF//DMPZqg4tOA6R9X7htMfnq3RooNyKuv6M4619hKxjchkW32TsS2Vfz8Gl4GicWaqt4axz6HD8LVS4zBD4qajB8YB16Pf4ktwzlfQ424L6A4PpWweIcCibhuLMDiD4ooMAl7AWK+GukNphWns/sPn124iIGvThqgs1jasPFTv4lTv9yucwvMFlV9tr5doh8G4c1DG42+zuB4Bv8B2hx52vXRO/lNwRAAcFHD6rxU5ybqibNClx8fiou35Q4I+XilCqui9+yQi+ac4oRhyNrhUT8lhthOvT8eomeOlZ2sEkar2zhwxY4ZkL13Yh8AsSywXubCXvYvuGjNBG/UNo9jZUSX5V5fgmF/gZi61v7j8gEKwV+NWFvLC5cQaoZ09Wc351nvhEDoKDeCdbEqt3ebfI0vMWxMBo+vnH3/HCQ/d7lgU=
-  - secure: h8CIdx+puNw2iXfXzg79eDaNgaus+n9HhlNj29vY8VbHSu/KDwcIVvBwI4uvLvxLsNmSHKZSUTlruwfmzeMBlK2m/9RCJNfJ73h0cEcJ/q6g1BBTlf0zdBnDQL9wrH5XQFEqXEXZbrJPqDtXHPFxJ6ZFl5E7CdmcUa/TcTZMjhExBD/bj6l0sRCzRd5wahMxl3iINGQax3jZ37w1BtIc2aysr8biULBqIanBvSgA5uaV7HQnMBixp6f8k5+u0rfwh5PUYQT8bobOGyDs3InFIp/CqGVaFFLnlfMsFps1Mb8CSGacML3K37KFaBCzOZAKF/wjWgxt1SO5RSPt1obm2MxIc3MJaGBjAyRQ0HGAB3HUy9heTqiWXIJkYxcoPPkurAeb6AE9CgZhM8QpQG+zfV6+r+W3mV7quQeMoI10ApyCn4WktVRIwBFdrtvhK1dYeorTQCZzZ/AnXhBs7EmjPSLAiEXBrECZWjOzYR5vbC65gQoPRbgmnRxr9lMJJwANmX51B1/YYpzwKW+QAMEPANno2UkudFtR9kO9s5V32+eJbJzdOAupcwH0UDvrDumOqqZBSn9tW1TFhtsmE52+/QEzpvx2MimAKgQwxx3cazje3lTzImYsweAVSWyc/Xwj6ORuit3brhAr1U3E2SBno3Al3WeFZZHhGma3IGUyBww=
+  - secure: aXqnWiZqOafjmRqJ/S4D1LRDHjWN7aossmC3CWmm4WWPRDk6oUn85fjtAP/RGgLkI+ZhuD9N76sEeF+008Gp1fRzGeid5BPGw/UZjYBRG70hI1dDkiMf7n6JU/o/PsVLqLExQ22havftzLh2C4olILAYVdurClFbMA1usSmxlU7r6R6kAGtCNeK+zh6qK4h3ssCjcm9t9LkNcCVkT1a3nzDDRHGVmvhSehl2mw7f/R98TlpJjiEXyZ3IIPW53c0HD8GbkIsKcD/54LTrlC0xnjMinJiewCDb7773ax1mMKzPd3WuibBX+ClWCA2S6M3WU9yC+0/z3RPpCQUuV3SH8F5324Q5y766UAjBN/NWr5hXRyyN8gcIzgkUfjz9YwVX+dBAkPE5AwvdoGJWDmKcx1ud+hbxjF2IIS+seHnxWn5AcbXNGbzc9trZKeBEaGTe3yPeRuRAUriMUi3MtdfY31banwy4OBojCUJDnRZtPy69l6B7aqDo8nqvkdGCNAyADUyOXwDq0P9C4cgmiEJbpbVnTSocUMrU4HPA7/kCQK9TiUYMqzelR7ZOgpoku1RnJZPDVZroxbWHkJzptfOGhzNsJhQILowI0F7GMErD0dujA+sQB5f5ZbyenRTYCy1J901SMJsdJkvPa/SZVllNIoEi2n11yK6LUcC3BCPA9Fc=
+  - secure: nagFawfNnoc1qDbj3WJnLkxMr42HAmgQK+PSR8oUwNVsyIyppnCLsGNESgs/EXeR5IFcgEpyl/gPRKCQp85nSptJEJW4T0v6ZPQWDDTmN5LZ5QtjCCWEkzJ6YB+89b3Tpo7h1jIrZJRewfTWfwRL2ndfiOdaZXLJtgqddvPbTxJBUQ5MYeVOCu1D9dvSXLqlAoCVApisAdqv/lefLKe95FO+me9OvHudhvf4YZR5ot79YD5wLGyqvcSg9fh4D2FaG+v6lojntSzhXqsFCKBg+D8PFM6UOXJinOX11X60nD38fkSJDn3dEYDx9k8rD7Zi8/qqGxI5cipCdp0veKjCD4AXkhoaQOejeKpA5g44oI+AfQx1w7DHE9SS9ivdg5RjE8M2uPyFSe5GyddR1/I4hayhsv8REvRhWIpKgIWHMu9qSfpc9bw6m/RmRAvCew/AcNzepXjPeJahBjnIoFNG4zeFio1QusKwjfCkuPbVJlT2RRl+CFDlpeiw5pYOodSVuroHI5xhFQqZ89QzH4vczBm5iOwwDcUbBgRSMq2LTmxL7mtiRzSxXPDnsWv+D5qsVPvl9xX1KkTUSLlRWgKsrLeVveHuzHtT2ORDdP+0WHzUblhLVraYgisr0WOoWiw8YKFjZegqhb4S7T5Xi72sYl0UpuFCo3lUYUWSePWLpYc=
