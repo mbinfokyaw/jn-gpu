@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "Logging in..."
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+echo "Building and pushing..."
+
 build_and_push () {
 
   export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
