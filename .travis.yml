@@ -6,13 +6,16 @@ jobs:
   include:
   - stage: build base
     script:
+    - echo "BUILDING BASE NOTEBOOK...."
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - "./build.sh base-notebook-gpu"
   - stage: build minimal
     script:
+    - echo "BUILDING MINIMAL NOTEBOOK..."
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - "./build.sh minimal-notebook-gpu"
 env:
   global:
-    DOCKER_USERNAME=bswrundquist
-    secure: gDwkXIYiQfYRWqc9F38tQXx0Zrgi95FcaOLWGbHgNYmXJd2rd2ctNJA6IfzINfl0v44BI6T17oCcSplyFLiB7HVdg7nM6XHQJN7cQhgZBfHIpN1nQKripFCyAdHmqurxPGR2gt8SaCVH78JvBUt4Ia1WxyC5oA2vYCWYCvF1duK8qO72+iCQfXTjCqT85YI5ScawGKiGBcPfWi/wbvNL7k8q+R0YO47kSGsYme/2M1g8cvzi44InQhWXnayFarTL4SVUpDvACdo3IczzVqXbGI8bcVLDsfEbVlgERItdJiq1aHTKABqlPNBScXC/lJl29mo9MlnAh1+zDLlFD2wKPEMYtqRyM2O9vr/tIrOH9pu+rYo+tEY1SmHqzdNfkp/ART1/SZwb1xWEHYhG4AHIBPjjTCD+ZFhdinMzOsM3Pe2vR8jgUgGo7CxuNbWYZ2HoSqM7IKimZjO+PnLSl+QwYJcohATZrBAMtYfd/wH7uYJBY4wgp3Dr8nWFJr3bQ1H3W/SlgyiHZWnFBUtuylvjfGZOj4CZnMmJ4D4hJMBwUa35zYL5xY2ajJt7q4NIfJBmuiTxBRYb164+BpJIWo/I548bJ2lZH4NxPNtHiK2xWTBj2KtVN3YntSZQzauk3MT81farZKd0bnROZnTqkRzWA86+lt5BJ6Z5JugCKvSPwW8=
+    - DOCKER_USERNAME=bswrundquist
+    - COMMIT=${TRAVIS_COMMIT::8}
+    - secure: gDwkXIYiQfYRWqc9F38tQXx0Zrgi95FcaOLWGbHgNYmXJd2rd2ctNJA6IfzINfl0v44BI6T17oCcSplyFLiB7HVdg7nM6XHQJN7cQhgZBfHIpN1nQKripFCyAdHmqurxPGR2gt8SaCVH78JvBUt4Ia1WxyC5oA2vYCWYCvF1duK8qO72+iCQfXTjCqT85YI5ScawGKiGBcPfWi/wbvNL7k8q+R0YO47kSGsYme/2M1g8cvzi44InQhWXnayFarTL4SVUpDvACdo3IczzVqXbGI8bcVLDsfEbVlgERItdJiq1aHTKABqlPNBScXC/lJl29mo9MlnAh1+zDLlFD2wKPEMYtqRyM2O9vr/tIrOH9pu+rYo+tEY1SmHqzdNfkp/ART1/SZwb1xWEHYhG4AHIBPjjTCD+ZFhdinMzOsM3Pe2vR8jgUgGo7CxuNbWYZ2HoSqM7IKimZjO+PnLSl+QwYJcohATZrBAMtYfd/wH7uYJBY4wgp3Dr8nWFJr3bQ1H3W/SlgyiHZWnFBUtuylvjfGZOj4CZnMmJ4D4hJMBwUa35zYL5xY2ajJt7q4NIfJBmuiTxBRYb164+BpJIWo/I548bJ2lZH4NxPNtHiK2xWTBj2KtVN3YntSZQzauk3MT81farZKd0bnROZnTqkRzWA86+lt5BJ6Z5JugCKvSPwW8=
