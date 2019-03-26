@@ -12,7 +12,3 @@ build_and_push () {
 
 }
 
-for repo in base-notebook-gpu minimal-notebook-gpu scipy-notebook-gpu tensorflow-notebook-gpu ;
-  do
-    build_and_push $repo
-  done

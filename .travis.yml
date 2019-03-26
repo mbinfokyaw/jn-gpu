@@ -2,11 +2,18 @@ sudo: enabled
 language: bash
 services:
 - docker
-deploy:
-  provider: script
-  script: bash build.sh
-  on:
-    branch: master
+
+jobs:
+  include:
+    - stage: build base
+      script:
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - ./build.sh base-notebook-gpu
+    - stage: build minimal
+      script:
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - ./build.sh base-minimal-gpu
+
 env:
   global:
   - secure: HoMv6B4csnKuN+cRZnBKc80BnT0T3/a+nuR++cVrLgNGcPtX/OedVXH/8rVax5yRoE12yMfhPBIj8HInX7RtKKWuhiTErE0Q9eImtdqrn7vcOWeOZ+iOAW/j1Bu44UcNr+2zubKL+owD/a1J3fkENGEh6KklmNVF2E9UOvJVR+JZKJih4fshG6kwSaV2+IWpr/vdnAbqW6UUyZ6qzu9G5jz/76nn7fKvj0lywj5NaJnrl42qCjLJZIWWAGpCKF//DMPZqg4tOA6R9X7htMfnq3RooNyKuv6M4619hKxjchkW32TsS2Vfz8Gl4GicWaqt4axz6HD8LVS4zBD4qajB8YB16Pf4ktwzlfQ424L6A4PpWweIcCibhuLMDiD4ooMAl7AWK+GukNphWns/sPn124iIGvThqgs1jasPFTv4lTv9yucwvMFlV9tr5doh8G4c1DG42+zuB4Bv8B2hx52vXRO/lNwRAAcFHD6rxU5ybqibNClx8fiou35Q4I+XilCqui9+yQi+ac4oRhyNrhUT8lhthOvT8eomeOlZ2sEkar2zhwxY4ZkL13Yh8AsSywXubCXvYvuGjNBG/UNo9jZUSX5V5fgmF/gZi61v7j8gEKwV+NWFvLC5cQaoZ09Wc351nvhEDoKDeCdbEqt3ebfI0vMWxMBo+vnH3/HCQ/d7lgU=
