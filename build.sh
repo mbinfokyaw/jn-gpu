@@ -10,3 +10,4 @@ build_and_push () {
 
 }
 
+build_and_push $1
