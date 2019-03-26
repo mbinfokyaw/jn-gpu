@@ -11,7 +11,7 @@ jobs:
   - stage: build minimal
     script:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - "./build.sh base-minimal-gpu"
+    - "./build.sh minimal-notebook-gpu"
 env:
   global:
   - secure: aXqnWiZqOafjmRqJ/S4D1LRDHjWN7aossmC3CWmm4WWPRDk6oUn85fjtAP/RGgLkI+ZhuD9N76sEeF+008Gp1fRzGeid5BPGw/UZjYBRG70hI1dDkiMf7n6JU/o/PsVLqLExQ22havftzLh2C4olILAYVdurClFbMA1usSmxlU7r6R6kAGtCNeK+zh6qK4h3ssCjcm9t9LkNcCVkT1a3nzDDRHGVmvhSehl2mw7f/R98TlpJjiEXyZ3IIPW53c0HD8GbkIsKcD/54LTrlC0xnjMinJiewCDb7773ax1mMKzPd3WuibBX+ClWCA2S6M3WU9yC+0/z3RPpCQUuV3SH8F5324Q5y766UAjBN/NWr5hXRyyN8gcIzgkUfjz9YwVX+dBAkPE5AwvdoGJWDmKcx1ud+hbxjF2IIS+seHnxWn5AcbXNGbzc9trZKeBEaGTe3yPeRuRAUriMUi3MtdfY31banwy4OBojCUJDnRZtPy69l6B7aqDo8nqvkdGCNAyADUyOXwDq0P9C4cgmiEJbpbVnTSocUMrU4HPA7/kCQK9TiUYMqzelR7ZOgpoku1RnJZPDVZroxbWHkJzptfOGhzNsJhQILowI0F7GMErD0dujA+sQB5f5ZbyenRTYCy1J901SMJsdJkvPa/SZVllNIoEi2n11yK6LUcC3BCPA9Fc=
