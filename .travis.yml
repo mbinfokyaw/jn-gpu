@@ -16,6 +16,7 @@ jobs:
   - stage: build deep learning
     script:
     - "./build.sh tensorflow-notebook-gpu"
+    script:
     - "./build.sh datascience-notebook-gpu"
 env:
   global:
