@@ -19,28 +19,28 @@ USER $NB_UID
 # use notebook-friendly backends in these images
 RUN conda install --quiet --yes \
     'conda-forge::blas=*=openblas' \
-    'ipywidgets=7.4*' \
-    'pandas=0.23*' \
-    'numexpr=2.6*' \
-    'matplotlib=2.2*' \
-    'scipy=1.1*' \
-    'seaborn=0.9*' \
-    'scikit-learn=0.20*' \
-    'scikit-image=0.14*' \
-    'sympy=1.1*' \
-    'cython=0.28*' \
-    'patsy=0.5*' \
-    'statsmodels=0.9*' \
-    'cloudpickle=0.5*' \
-    'dill=0.2*' \
-    'numba=0.38*' \
-    'bokeh=0.13*' \
-    'sqlalchemy=1.2*' \
-    'hdf5=1.10*' \
-    'h5py=2.7*' \
-    'vincent=0.4.*' \
-    'beautifulsoup4=4.6.*' \
-    'protobuf=3.*' \
+    'ipywidgets' \
+    'pandas' \
+    'numexpr' \
+    'matplotlib' \
+    'scipy' \
+    'seaborn' \
+    'scikit-learn' \
+    'scikit-image' \
+    'sympy' \
+    'cython' \
+    'patsy' \
+    'statsmodels' \
+    'cloudpickle' \
+    'dill' \
+    'numba' \
+    'bokeh' \
+    'sqlalchemy' \
+    'hdf5' \
+    'h5py' \
+    'vincent' \
+    'beautifulsoup4' \
+    'protobuf' \
     'xlrd'  && \
     conda remove --quiet --yes --force qt pyqt && \
     conda clean -tipsy && \
