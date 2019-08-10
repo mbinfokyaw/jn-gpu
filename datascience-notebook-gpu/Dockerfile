@@ -24,7 +24,7 @@ RUN apt-get update && \
 # install Julia packages in /opt/julia instead of $HOME
 ENV JULIA_DEPOT_PATH=/opt/julia
 ENV JULIA_PKGDIR=/opt/julia
-ENV JULIA_VERSION=1.1.1
+ENV JULIA_VERSION=1.0.4
 
 RUN mkdir /opt/julia-${JULIA_VERSION} && \
     cd /tmp && \
